@@ -1,14 +1,15 @@
-# ErrorHandling Smart Contract
+# DailyTaskRewardSystem Smart Contract
 
 ## Overview
 
-The `ErrorHandling` smart contract is a simple implementation of a token system on the Ethereum blockchain. It demonstrates the use of Solidity features such as `require()`, `assert()`, and `revert()` for error handling and balance management. This contract allows users to transfer tokens between addresses and provides functions to check invariants and withdraw tokens.
+The DailyTaskRewardSystem smart contract is a decentralized system that allows users to register tasks, earn points for completing them within 24 hours, and redeem their points once they reach a threshold. This contract demonstrates the use of Solidity features such as task registration, task completion within a specified time window, and error handling with require(), assert(), and revert().
 
 ## Features
 
-- **Token Transfers**: Users can transfer tokens to other addresses.
-- **Balance Checks**: The contract ensures that users have sufficient balances before allowing transfers and withdrawals.
-- **Error Handling**: Implements various error handling mechanisms:
-  - **`require()`**: Validates conditions before executing code.
-  - **`assert()`**: Checks for invariant conditions that should always be true.
-  - **`revert()`**: Stops execution and reverts state changes when a condition is not met.
+- **Task Registration**: Users can register new tasks by providing a task name and description.
+- **Task Completion**: Users can complete a task and earn points if completed within 24 hours.
+- **Point Redemption**: Users can redeem points once they have accumulated enough, as defined by the reward threshold.
+- **Error Handling**: Implements error handling with:
+  - **`require()`**: Used for validating user input and conditions (e.g., checking if a task exists or if the user has enough points).
+  - **`assert()`**: Ensures that the points balance has been correctly updated after redemption.
+  - **`revert()`**: Stops the transaction and reverts changes if the task is completed outside the allowed time window.
